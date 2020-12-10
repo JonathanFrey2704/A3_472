@@ -27,18 +27,36 @@ if __name__ == '__main__':
         tokenized_tweets.append([word for word in temp.split() if word not in stopwords])
     #print(tokenized_tweets)
 
-    vocabulary ={}
-    for tokenized_tweet in tokenized_tweets:
+    # make predictions 1 or 0
+    y = [1 if q1 == "yes" else 0 for q1 in y]
+
+    vocabulary={} #entire vocabulary
+    v1 ={} #vocabulary of 'yes' q1 labels
+    v2={} #vocabulary of 'no' q2 labels
+    for i, tokenized_tweet in enumerate(tokenized_tweets):
+        temp = {}
+        if y[i] == 1:
+            temp = v1
+        else:
+            temp = v2
+
         for word in tokenized_tweet:
+
             if word not in vocabulary:
                 vocabulary[word] = 1
             else:
                 vocabulary[word] += 1
 
-    #print(vocabulary)
+            if word not in temp:
+                temp[word] = 1
+            else:
+                temp[word] += 1
 
-    #make predictions 1 or 0
-    y= [1 if q1 == "yes" else 0 for q1 in y]
+    print(v1)
+    print(v2)
+    print(vocabulary)
+
+
 
     #priors p(1) and p(0)
     total = len(y)
@@ -46,4 +64,6 @@ if __name__ == '__main__':
     p0 = y.count(0)/total
     #print(p0)
 
+
+    #compute conditional probabilities
 
