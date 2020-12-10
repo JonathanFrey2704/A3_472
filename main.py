@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     vocabulary={} #entire vocabulary
     v1 ={} #vocabulary of 'yes' q1 labels
-    v2={} #vocabulary of 'no' q2 labels
+    v2={} #vocabulary of 'no' q1 labels
     for i, tokenized_tweet in enumerate(tokenized_tweets):
         temp = {}
         if y[i] == 1:
