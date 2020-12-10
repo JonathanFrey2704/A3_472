@@ -16,7 +16,8 @@ if __name__ == '__main__':
         tweet_ids.append(row[0])
         tweets.append(row[1].lower())
         y.append(row[2])
-    #print(tweets)
+        a+=1
+    #print(y)
 
     #tokenize tweets, remove punctuation and stopwords
     tokenized_tweets =[]
@@ -37,3 +38,13 @@ if __name__ == '__main__':
 
     #print(vocabulary)
 
+    #make predictions 1 or 0
+    y= [1 if q1 == "yes" else 0 for q1 in y]
+
+    #priors p(1) and p(0)
+    total = len(y)
+    p1 = y.count(1)/total
+    p0 = y.count(0)/total
+    #print(p0)
+
+    
