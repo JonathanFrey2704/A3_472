@@ -16,7 +16,6 @@ if __name__ == '__main__':
         tweet_ids.append(row[0])
         tweets.append(row[1].lower())
         y.append(row[2])
-        a+=1
     #print(y)
 
     #tokenize tweets, remove punctuation and stopwords
@@ -47,4 +46,4 @@ if __name__ == '__main__':
     p0 = y.count(0)/total
     #print(p0)
 
-    
+
